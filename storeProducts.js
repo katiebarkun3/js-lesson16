@@ -172,12 +172,35 @@ createCard(storeProducts);
 
 
 search.onclick = function() {
+    let arr = [];
     if (document.getElementById('ph').checked) { //filter
-        main.innerHTML = '';
         let arr1 = storeProducts.filter(item => item.name_prefix == 'Смартфон');
-        console.log(arr1);
-        createCard(arr1);
+        main.innerHTML = '';
+        arr = [...arr, ...arr1];
     }
+    if (document.getElementById('lap').checked) { //filter
+        main.innerHTML = '';
+        let arr1 = storeProducts.filter(item => item.name_prefix == 'Ноутбук');
+        arr = [...arr, ...arr1];
+    }
+
+
+    if (document.getElementById('dell').checked) { //filter
+        main.innerHTML = '';
+        let arr1 = storeProducts.filter(item => item.brend == 'Dell');
+        arr = [...arr, ...arr1];
+    }
+    if (document.getElementById('apple').checked) { //filter
+        main.innerHTML = '';
+        let arr1 = storeProducts.filter(item => item.brend == 'Apple');
+        arr = [...arr, ...arr1];
+    }
+    if (document.getElementById('samsung').checked) { //filter
+        main.innerHTML = '';
+        let arr1 = storeProducts.filter(item => item.brend == 'Samsung');
+        arr = [...arr, ...arr1];
+    }
+    createCard(arr);
 }
 
 
